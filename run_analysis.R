@@ -71,8 +71,11 @@ combineddata <- reshape2::melt(data = combineddata, id = c("subjectID", "activit
 combineddata <- reshape2::dcast(data = combineddata, subjectID + activitytype ~ variable, fun.aggregate = mean)
 ## head(combineddata)
 
-## create a new file with our tidy data in it
+## create new files with our tidy data in it
+## txt because that's what the assignment requires
+## csv because it's way easier to tell if you did it correctly
 data.table::fwrite(x = combineddata, file = "courseproject_tidydata.csv", quote = FALSE)
+data.table::fwrite(x = combineddata, file = "courseproject_tidydata.txt", quote = FALSE)
 
 
 ## Sucess!!!
